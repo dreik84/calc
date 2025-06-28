@@ -34,6 +34,10 @@ public class StackX {
         return stackArray[top--];
     }
 
+    /**
+     * This method returns the top element but does not remove it from the stack
+     * @return The top element of the stack
+     */
     public char peek() {
         return stackArray[top];
     }
@@ -46,6 +50,11 @@ public class StackX {
         return top + 1;
     }
 
+    /**
+     * This method returns the N element but does not remove it from the stack
+     * @param n The index of the element to be returned
+     * @return The N element of the stack
+     */
     public char peekN(int n) {
         return stackArray[n];
     }
