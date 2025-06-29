@@ -42,10 +42,18 @@ public class StackX {
         return stackArray[top];
     }
 
+    /**
+     * This method checks that the stack is empty
+     * @return True if the stack is empty and False otherwise
+     */
     public boolean isEmpty() {
         return (top == -1);
     }
 
+    /**
+     * This method returns the number of elements in the stack
+     * @return Integer number of elements
+     */
     public int size() {
         return top + 1;
     }
@@ -59,6 +67,10 @@ public class StackX {
         return stackArray[n];
     }
 
+    /**
+     * This method displays information about the stack contents in the console
+     * @param s String that will be displayed in the console
+     */
     public void displayStack(String s) {
         System.out.println(s);
         System.out.print("Stack (bottom-->top): ");
