@@ -8,6 +8,7 @@ public class InfixApp {
 
     public static void main(String[] args) throws IOException {
         String input, output;
+        int result;
 
         while (true) {
             System.out.print("Enter infix: ");
@@ -19,7 +20,9 @@ public class InfixApp {
             }
             InToPost theTrans = new InToPost(input);
             output = theTrans.doTrans();
-            System.out.println("Postfix is " + output + "\n");
+            ParsePost aParser = new ParsePost(output);
+            result = aParser.doParse();
+            System.out.println("Postfix is " + output + " = " + result + "\n");
         }
     }
 
