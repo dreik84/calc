@@ -24,8 +24,8 @@ public class ParsePost {
             if (ch >= '0' && ch <= '9') {
                 theStack.push(ch);
             } else {
-                num2 = theStack.pop();
-                num1 = theStack.pop();
+                num2 = Character.getNumericValue(theStack.pop());
+                num1 = Character.getNumericValue(theStack.pop());
 
                 switch (ch) {
                     case '+':
@@ -43,10 +43,10 @@ public class ParsePost {
                     default:
                         interAns = 0;
                 }
-                theStack.push((char) interAns);
+                theStack.push(Character.forDigit(interAns, 10));
             }
         }
-        interAns = theStack.pop();
+        interAns = Character.getNumericValue(theStack.pop());
         return interAns;
     }
 }
