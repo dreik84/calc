@@ -7,7 +7,8 @@ import java.io.InputStreamReader;
 public class InfixApp {
 
     public static void main(String[] args) throws IOException {
-        String input, output;
+        String input;
+        String output;
         int result;
 
         while (true) {
