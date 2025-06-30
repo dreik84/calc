@@ -2,8 +2,8 @@ package org.example;
 
 public class InToPost {
 
-    private StackX theStack;
-    private String input;
+    private final StackX theStack;
+    private final String input;
     private String output;
 
     public InToPost(String in) {
