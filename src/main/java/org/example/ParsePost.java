@@ -3,7 +3,7 @@ package org.example;
 public class ParsePost {
 
     private StackX theStack;
-    private String input;
+    private final String input;
 
     public ParsePost(String s) {
         input = s;
@@ -13,7 +13,9 @@ public class ParsePost {
         theStack = new StackX(20);
         char ch;
         int i;
-        int num1, num2, interAns;
+        int num1;
+        int num2;
+        int interAns;
 
         for (i = 0; i < input.length(); i++) {
             ch = input.charAt(i);
