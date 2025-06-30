@@ -2,13 +2,11 @@ package org.example;
 
 public class StackX {
 
-    private int maxSize;
-    private char[] stackArray;
+    private final char[] stackArray;
     private int top;
 
     public StackX(int s) {
-        maxSize = s;
-        stackArray = new char[maxSize];
+        stackArray = new char[s];
         top = -1;
     }
 
