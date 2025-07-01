@@ -1,28 +1,28 @@
 package org.example;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InToPostTest {
 
-    private static final Map<String, String> IN_POST_PAIRS = new HashMap<>();
-
-    @BeforeAll
-    static void init() {
-        IN_POST_PAIRS.put("2*2", "22*");
-        IN_POST_PAIRS.put("2+2*2", "222*+");
-        IN_POST_PAIRS.put("2*(2+2)", "222+*");
+    static Stream<Map<String, String>> doTrans() {
+        return Stream.of(
+                Map.of("2*2", "22*"),
+                Map.of("2+2*2", "222*+"),
+                Map.of("2+2*2", "222*+")
+        );
     }
 
-    @Test
-    void doTrans() {
+    @ParameterizedTest
+    @MethodSource
+    void doTrans(Map<String, String> inPostTest) {
 
-        IN_POST_PAIRS.forEach((input, expected) -> {
+        inPostTest.forEach((input, expected) -> {
             InToPost inToPost = new InToPost(input);
             String actual = inToPost.doTrans();
 
