@@ -41,10 +41,10 @@ public class InToPost {
         }
 
         while (!theStack.isEmpty()) {
-
             theStack.displayStack("While "); // diagnostic
             output = output + theStack.pop();
         }
+
         theStack.displayStack("End ");
 
         return output;
@@ -78,7 +78,7 @@ public class InToPost {
         theStack.push(opThis);
     }
 
-    public void gotParen(char ch) {
+    private void gotParen(char ch) {
 
         while (!theStack.isEmpty()) {
 
