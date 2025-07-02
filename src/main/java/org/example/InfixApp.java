@@ -16,7 +16,7 @@ public class InfixApp {
             System.out.flush();
             input = getString();
 
-            if (input.equals("")) {
+            if (input.isEmpty()) {
                 break;
             }
             InToPost theTrans = new InToPost(input);
@@ -30,8 +30,7 @@ public class InfixApp {
     private static String getString() throws IOException {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
-        String str = br.readLine();
 
-        return str;
+        return br.readLine();
     }
 }
