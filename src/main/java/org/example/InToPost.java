@@ -33,7 +33,7 @@ public class InToPost {
                     theStack.push(ch);
                     break;
                 case ')':
-                    gotParen(ch);
+                    gotParen();
                     break;
                 default:
                     output = output + ch;
@@ -41,10 +41,10 @@ public class InToPost {
         }
 
         while (!theStack.isEmpty()) {
+
             theStack.displayStack("While "); // diagnostic
             output = output + theStack.pop();
         }
-
         theStack.displayStack("End ");
 
         return output;
@@ -78,7 +78,7 @@ public class InToPost {
         theStack.push(opThis);
     }
 
-    private void gotParen(char ch) {
+    public void gotParen() {
 
         while (!theStack.isEmpty()) {
 
