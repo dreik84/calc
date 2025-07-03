@@ -1,9 +1,13 @@
 package org.example;
 
+import org.example.exception.EmptyStackXException;
+import org.example.exception.NoSuchElementStackXException;
+import org.example.exception.StackXOverflowException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class StackXTest {
@@ -12,7 +16,7 @@ class StackXTest {
 
     @BeforeEach
     void init() {
-        stackX = new StackX(5);
+        stackX = new StackX(2);
     }
 
     @Test
@@ -54,5 +58,29 @@ class StackXTest {
         int actual = stackX.size();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void pushTestThrown() {
+        assertThrows(StackXOverflowException.class, () -> {
+            stackX.push('x');
+            stackX.push('y');
+            stackX.push('z');
+        });
+    }
+
+    @Test
+    void popTestThrown() {
+        assertThrows(EmptyStackXException.class, stackX::pop);
+    }
+
+    @Test
+    void peekTestThrown() {
+        assertThrows(EmptyStackXException.class, stackX::peek);
+    }
+
+    @Test
+    void peekNTestThrown() {
+        assertThrows(NoSuchElementStackXException.class, () -> stackX.peekN(0));
     }
 }
