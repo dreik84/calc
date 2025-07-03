@@ -1,7 +1,9 @@
 package org.example;
 
+import java.util.EmptyStackException;
+
 /**
- * This class represents the implementation of the stack data structure
+ * This class represents the implementation of the stack data structure.
  * @author dreik84
  * @version 1.0.0
  */
@@ -17,7 +19,7 @@ public class StackX {
     }
 
     /**
-     * This method pushes a new value onto the stack
+     * This method pushes a new value onto the stack.
      * @param j The value to put on the stack
      */
     public void push(char j) {
@@ -25,23 +27,35 @@ public class StackX {
     }
 
     /**
-     * This method retrieves a value from the stack
+     * This method retrieves a value from the stack.
      * @return The top element of the stack
+     * @throws EmptyStackException – if this stack is empty.
      */
     public char pop() {
+
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+
         return stackArray[top--];
     }
 
     /**
-     * This method returns the top element but does not remove it from the stack
+     * This method returns the top element but does not remove it from the stack.
      * @return The top element of the stack
+     * @throws EmptyStackException – if this stack is empty.
      */
     public char peek() {
+
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+
         return stackArray[top];
     }
 
     /**
-     * This method checks that the stack is empty
+     * This method checks that the stack is empty.
      * @return True if the stack is empty and False otherwise
      */
     public boolean isEmpty() {
@@ -49,7 +63,15 @@ public class StackX {
     }
 
     /**
-     * This method returns the number of elements in the stack
+     * This method checks that the stack is full.
+     * @return True if the stack is full and False otherwise
+     */
+    public boolean isFull() {
+        return (top == stackArray.length - 1);
+    }
+
+    /**
+     * This method returns the number of elements in the stack.
      * @return Integer number of elements
      */
     public int size() {
@@ -57,7 +79,7 @@ public class StackX {
     }
 
     /**
-     * This method returns the N element but does not remove it from the stack
+     * This method returns the N element but does not remove it from the stack.
      * @param n The index of the element to be returned
      * @return The N element of the stack
      */
@@ -66,7 +88,7 @@ public class StackX {
     }
 
     /**
-     * This method displays information about the stack contents in the console
+     * This method displays information about the stack contents in the console.
      * @param s String that will be displayed in the console
      */
     public void displayStack(String s) {
