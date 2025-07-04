@@ -35,6 +35,8 @@ public class InToPost {
                 case ')':
                     gotParen();
                     break;
+                case ' ':
+                    break;
                 default:
                     output = output + ch;
             }
@@ -61,7 +63,7 @@ public class InToPost {
             } else {
                 int prec2;
 
-                if (opTop == '+' || opTop == '-')  {
+                if (opTop == '+' || opTop == '-') {
                     prec2 = 1;
                 } else {
                     prec2 = 2;
